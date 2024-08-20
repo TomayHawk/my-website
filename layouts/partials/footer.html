@@ -1,7 +1,12 @@
-<div class="container-fluid bg-dark">
-    <div class="row">
-        <div class="col p-2">
-            <span class="fs-5 text-light">Page Footer</span>
-        </div>
+<div class="d-block bg-dark">
+    <div class="p-2 text-light">
+        {{ with .Site.Params.footer }}
+        {{ . | markdownify }}
+        {{ else }}
+        <small>&copy; <span id="js-year"></span><noscript>{{ now.Format "2006" }}</noscript> - {{ .Site.Copyright | default .Site.Title }}</small>
+        {{ end }}
     </div>
 </div>
+<script>
+    document.getElementById("js-year").innerHTML = new Date().getFullYear();
+</script>

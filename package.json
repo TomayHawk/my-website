@@ -1,0 +1,24 @@
+{
+  "name": "my-website",
+  "version": "1.0.0",
+  "description": "A hugo template for NPM",
+  "main": "index.js",
+  "scripts": {
+    "dev": "hugo server --gc --disableFastRender",
+    "build": "hugo --gc --cleanDestinationDir --minify",
+    "npm-check": "npm-check -u",
+    "postinstall": "hugo-installer --version otherDependencies.hugo --extended --destination node_modules/.bin/hugo"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "npm-check": "^3.2.10"
+  },
+  "dependencies": {
+    "exec-bin": "^1.0.0",
+    "hugo-installer": "2.0.0"
+  },
+  "otherDependencies": {
+    "hugo": "0.133.0"
+  }
+}

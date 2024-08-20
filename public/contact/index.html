@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=56735&amp;path=livereload" data-no-instant defer></script>
   
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,14 +38,16 @@
 </div>
 
 
-  <div class="container-fluid bg-dark">
-    <div class="row">
-        <div class="col p-2">
-            <span class="fs-5 text-light">Page Footer</span>
-        </div>
+  <div class="d-block bg-dark">
+    <div class="p-2 text-light">
+        
+        Custom footer text, <em><strong>can include markdown!</strong></em>
+        
     </div>
 </div>
-
+<script>
+    document.getElementById("js-year").innerHTML = new Date().getFullYear();
+</script>
   
 
 

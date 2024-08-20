@@ -2,10 +2,11 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 
-[markup]
-[goldmark]
-[renderer]
+copyright = "Future Web Design"
+
+[markup.goldmark.renderer]
 unsafe = true 
 
 [params]
+footer = "Custom footer text, ***can include markdown!***"
 slogan = "Super Fast!"
