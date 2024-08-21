@@ -1,3 +1,11 @@
+<title>
+  {{- if .IsHome -}}
+    {{- .Site.Title -}}{{ with .Site.Params.slogan }} - {{ . }}{{ end }}
+  {{- else -}}
+    {{- .Title }} - {{ .Site.Title -}}
+  {{- end -}}
+</title>
+
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,10 +17,5 @@
 <!-- additional CSS -->
 <link rel="stylesheet" href="/css/main.css">
 
-<title>
-  {{- if .IsHome -}}
-    {{- .Site.Title -}}{{ with .Site.Params.slogan }} - {{ . }}{{ end }}
-  {{- else -}}
-    {{- .Title }} - {{ .Site.Title -}}
-  {{- end -}}
-</title>
+{{ partial "libsass" "scss/main.scss" }}
+{{ partial "libsass" "scss/footer.scss" }}
