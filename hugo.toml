@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Toma'
 
 copyright = "Future Web Design"
 
@@ -8,5 +8,5 @@ copyright = "Future Web Design"
 unsafe = true 
 
 [params]
-footer = "Custom footer text, ***can include markdown!***"
-slogan = "Super Fast!"
+footer = "Custom footer text, ***can include markdown.***"
+slogan = "slogaaaaaan"

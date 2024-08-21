@@ -2,9 +2,9 @@
 title = "Home"
 date = 2023-01-01T08:00:00-07:00
 draft = false
-subtitle = "Learning basic Hugo concepts."
+subtitle = "Will put contacts here later."
 +++
-Hugo supports markdown which enables you to do many things including **bold**, *italic*, and these examples below.
+Description area using **bold**, *italic*, and these examples below.
 
 ## Unordered lists
 
@@ -21,3 +21,4 @@ Hugo supports markdown which enables you to do many things including **bold**, *
 ## Link
 
 [google](http://www.google.com)
+put other links here
