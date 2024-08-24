@@ -1,42 +1,46 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand text-secondary" href="#">Toma Yuen</a>
+      <button class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </li>
-            
+            {{ range .Site.Menus.main }}
+                {{ if or .HasChildren (eq .Name "Activities") }}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ .Pre }}<span>{{ .Name }}</span>{{ .Post }}
+                    </a>
+                    <ul class="dropdown-menu">
+                        {{ range .Children }}
+                            {{ if eq .Param.divider true }}
+                            <li><hr class="dropdown-divider"></li>
+                            {{ else }}
+                            <li><a class="dropdown-item" href="{{ .URL }}">{{ .Pre }}<span>{{ .Name }}</span>{{ .Post }}</a></li>
+                            {{ end }}
+                        {{ end }}
+                    </ul>
+                </li>
+                {{ else }}
+                <li class="nav-item">
+                    <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active" aria-current="page{{ end }}"href="{{ .URL }}">
+                        {{ .Pre }}<span>{{ .Name }}</span>{{ .Post }}
+                    </a>
+                </li>
+            {{ end }}
+        {{ end }}
         </ul>
-        <!--
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>-->
+        </form>
       </div>
     </div>
 </nav>
-
-<div class="container-fluid bg-secondary">
-    <div class="row">
-        <div class="col p-2">
-            <span class="h1 text-white">maybe put links and contacts here</span>
-        </div>
-    </div>
-</div>

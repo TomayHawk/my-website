@@ -21,9 +21,3 @@
 {{ $css = $css | toCSS $opts }}
 <!-- {{/* insert link into HTML */}} -->
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
-
-{{- $src := resources.Get . -}}
-{{- $cssOpts := (dict "transpiler" "libsass" "outputStyle" "compressed" "includePaths" (slice "node_modules")) -}}
-{{- $postOpts := (dict "config" "config/postcss.config.js") -}}
-{{- $src = $src | toCSS $cssOpts | postCSS $postOpts | fingerprint -}}
-<link rel="stylesheet" href="{{- $src.Permalink | relURL -}}" integrity="{{- $src.Data.Integrity -}}" crossorigin="anonymous">

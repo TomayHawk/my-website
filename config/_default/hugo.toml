@@ -1,8 +1,8 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'Toma'
+baseURL = "https://example.org/"
+languageCode = "en-us"
+title = "Toma"
 
-copyright = "Future Web Design"
+copyright = "Toma Yuen"
 
 [markup.goldmark.renderer]
 unsafe = true 
@@ -10,3 +10,11 @@ unsafe = true
 [params]
 footer = "Custom footer text, ***can include markdown.***"
 slogan = "slogaaaaaan"
+
+[[menu.main]]
+identifier = "activities"
+name = "Activities"
+weight = 20
+
+[menu.main.params]
+divider = true

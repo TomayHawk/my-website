@@ -1,9 +1,16 @@
 body {
-  color: #222;
-  font-family: sans-serif;
-  line-height: 1.5;
-  margin: 1rem;
-  max-width: 768px;
+  background-image: url("/2W5A7297.jpg");
+  background-size: cover;
+  /* Ensures the image covers the entire background */
+  background-repeat: no-repeat;
+  /* Prevents the image from repeating */
+  background-attachment: fixed;
+  /* Keeps the background image fixed during scrolling */
+  background-position: center;
+  /* Centers the background image */
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 header {
@@ -17,6 +24,6 @@ footer {
 }
 
 a {
-  color: #00e;
+  color: rgb(238, 0, 0);
   text-decoration: none;
 }
