@@ -12,30 +12,30 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            {{ range .Site.Menus.main }}
-                {{ if or .HasChildren (eq .Name "Activities") }}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ .Pre }}<span>{{ .Name }}</span>{{ .Post }}
-                    </a>
-                    <ul class="dropdown-menu">
-                        {{ range .Children }}
-                            {{ if eq .Param.divider true }}
-                            <li><hr class="dropdown-divider"></li>
-                            {{ else }}
-                            <li><a class="dropdown-item" href="{{ .URL }}">{{ .Pre }}<span>{{ .Name }}</span>{{ .Post }}</a></li>
-                            {{ end }}
-                        {{ end }}
-                    </ul>
-                </li>
-                {{ else }}
-                <li class="nav-item">
-                    <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active" aria-current="page{{ end }}"href="{{ .URL }}">
-                        {{ .Pre }}<span>{{ .Name }}</span>{{ .Post }}
-                    </a>
-                </li>
+          {{ range .Site.Menus.main }}
+            {{ if or .HasChildren (eq .Name "Activities") }}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ .Pre }}<span>{{ .Name }}</span>{{ .Post }}
+              </a>
+              <ul class="dropdown-menu">
+                {{ range .Children }}
+                  {{ if eq .Param.divider true }}
+                  <li><hr class="dropdown-divider"></li>
+                  {{ else }}
+                  <li><a class="dropdown-item" href="{{ .URL }}">{{ .Pre }}<span>{{ .Name }}</span>{{ .Post }}</a></li>
+                  {{ end }}
+                {{ end }}
+              </ul>
+            </li>
+            {{ else }}
+            <li class="nav-item">
+              <a class="nav-link{{ if $.IsMenuCurrent "main" . }} active" aria-current="page{{ end }}" href="{{ .URL }}">
+                {{ .Pre }}<span>{{ .Name }}</span>{{ .Post }}
+              </a>
+            </li>
             {{ end }}
-        {{ end }}
+          {{ end }}
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -43,4 +43,12 @@
         </form>
       </div>
     </div>
-</nav>
+  </nav>
+  
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Collapsed content</h5>
+      <span class="text-muted">Toggleable via the navbar brand.</span>
+    </div>
+  </div>
+  
