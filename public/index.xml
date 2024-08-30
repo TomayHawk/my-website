@@ -31,6 +31,13 @@
       <description>This page is where you can list contact information for the business.</description>
     </item>
     <item>
+      <title>De Hacks</title>
+      <link>http://localhost:1313/dehacks/</link>
+      <pubDate>Tue, 20 Aug 2024 12:37:48 +0800</pubDate>
+      <guid>http://localhost:1313/dehacks/</guid>
+      <description>&lt;!DOCTYPE html&gt;&#xD;Question&#xD;Email address: Example textarea&#xD;</description>
+    </item>
+    <item>
       <title>Activities</title>
       <link>http://localhost:1313/activities/</link>
       <pubDate>Tue, 20 Aug 2024 12:37:48 +0800</pubDate>
