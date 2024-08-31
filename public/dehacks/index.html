@@ -151,7 +151,48 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap">
+<!--  -->
 <style>
+    .centralized {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Center horizontally and vertically */
+        display: flex;
+        align-items: center; /* Vertically center items */
+        flex-wrap: nowrap;
+        margin: 0;
+    }
+
+    .question-1 {
+        top: 42%;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center; /* Vertically center items */
+        text-align: center; /* Center text horizontally */
+        justify-content: center; /* Center contents horizontally */
+        width: 60%;
+    }
+
+    .input-1 {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Center horizontally and vertically */
+        display: flex;
+        align-items: center; /* Vertically center items */
+        text-align: center; /* Center text horizontally */
+        justify-content: center; /* Center contents horizontally */
+        flex-wrap: nowrap;
+        margin: 0;
+        gap: 10px;
+    }
+
+    .progress-bar {
+        top: 80%;
+    }
+
     .question-label {
         font-size: 32px; /* Adjust to your desired size */
         font-family: 'Press Start 2P', cursive; /* Pixelated font */
@@ -160,53 +201,239 @@
         flex-wrap: nowrap;
     }
 
-    .custom-label {
+    .press-start-font {
         font-size: 16px; /* Adjust to your desired size */
         font-family: 'Press Start 2P', cursive; /* Pixelated font */
         color: #d3d3d3; /* Optional: Change text color */
-        margin: 0;
-        flex-wrap: nowrap; /* Prevent wrapping */
     }
 
-    .form-question {
+    .mc-container {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -200%); /* Center horizontally and vertically */
-        display: flex; /* Use flexbox for horizontal alignment */
-        align-items: center; /* Vertically center items */
+        top: 58%;
+        left: 52%;
+        transform: translate(-50%, -50%); /* Center horizontally and vertically */
         flex-wrap: nowrap;
+        margin: 0;
     }
 
-    .form-group {
+    .form-check-wrapper {
         position: absolute;
-        top: 50%;
+        top: 60%;
         left: 50%;
-        transform: translate(-50%, -0%); /* Center horizontally and vertically */
-        display: flex; /* Use flexbox for horizontal alignment */
-        align-items: center; /* Vertically center items */
-        gap: 10px; /* Space between label and input */
-        flex-wrap: nowrap; /* Prevent wrapping */
+        transform: translate(-50%, -50%); /* Center horizontally and vertically */
+        display: flex;
+        flex-direction: column; /* Stack child elements vertically */
+        gap: 10px; /* Optional: Add space between checkboxes */
     }
 
-    .form-control {
-        width: 200px; /* Set a specific width */
+    .input-control {
+        width: 75%; /* Set a specific width */
         flex: none; /* Prevent the input from expanding to fill the available space */
         color: #a9a9a9;
     }
+
+    .input-container {
+        position: relative;
+    }
+
+    .input-long {
+        width: 30%; /* Width of the textarea */
+        min-height: 5%; /* Minimum height of the textarea */
+        padding: 10px; /* Padding inside the textarea */
+        border: 2px solid #007bff; /* Border color */
+        border-radius: 5px; /* Rounded corners */
+        font-size: 16px; /* Font size */
+        color: #ffffff; /* Text color */
+        background-color: #333333; /* Background color */
+        overflow: auto; /* Show scrollbars when content overflows */
+        resize: vertical; /* Allow vertical resizing only */
+        box-sizing: border-box; /* Include padding and border in width/height calculation */
+        white-space: pre-wrap; /* Preserve whitespace and wrap text */
+        color: #a9a9a9;
+    }
+
+    .rounded-button {
+        width: 85px;
+        font-size: 18px; /* Adjust to your desired size */
+        font-family: 'Nerko One', cursive; /* Pixelated font */
+        border-radius: 30px; /* Adjust the value to get the desired roundness */
+        white-space: pre;
+    }
+
+    .buttons {
+        top: 85%;
+        gap: 1170px;
+    }
+
+    .custom-bar {
+        top: 90%;
+        align-items: stretch;
+        width: 70%;
+    }
+
+    .hide-item {
+        visibility: hidden; /* Hides the button but keeps its space in the layout */
+    }
+
+    .disable-item {
+        display: none;
+    }
+
+    .form-check-input {
+        width: 20px; /* Adjust the size */
+        height: 20px; /* Adjust the size */
+        margin-right: 10px; /* Adjust the value to your desired margin */
+    }
+
+    .form-check {
+        margin: 25px;
+    }
+
+    .form-check-label {
+
+    }
 </style>
+<!-- Background -->
 <div class="fullscreen-background"></div>
-<div class="mb-3 form-question">
-<label for="exampleFormControlInput1" class="form-label question-label">Question</label>
+<!-- Question -->
+<div class="mb-3 centralized question-1">
+    <label for="exampleFormControlInput1" class="form-label question-label" id="questionContainer">What is your email address?</label>
 </div>
-<div class="mb-3 form-group">
-    <label for="exampleFormControlInput1" class="form-label custom-label">Email address: </label>
-    <input type="email" class="form-control bg-dark" id="exampleFormControlInput1" placeholder="name@example.com">
+<!-- Question 1 -->
+<div class="mb-3 input-1">
+    <label for="exampleFormControlInput1" class="form-label press-start-font" id="inputName">Name: </label>
+    <input type="email" class="input-control bg-dark" id="exampleFormControlInput1" placeholder="name@example.com">
 </div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+<!-- Question 2 -->
+<div class="mb-3 input-1">
+    <input type="text" class="input-control bg-dark" placeholder="Mike Tyson" aria-label="FullName">
 </div>
+<!-- Question 3 -->
+<div class="mb-3 input-1 input-container">
+    <textarea class="input-long bg-dark" aria-label="With textarea"></textarea>
+</div>
+<!-- Question 4 -->
+<!-- Question 5 -->
+<!-- Question 6 -->
+<!-- Question 7 -->
+<!-- Question 8 -->
+<!-- Question 9 -->
+<!-- Question 10 -->
+<!-- Question 11 -->
+<!-- Question 12 -->
+<!-- Question 13 -->
+<!-- Question 14 -->
+<!-- Input -->
+<!-- Checkboxes -->
+<div class="form-check-wrapper mc-container disable-item">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label press-start-font" for="flexCheckDefault">Vegetarian</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+        <label class="form-check-label press-start-font" for="flexCheckChecked">Vegan</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+        <label class="form-check-label press-start-font" for="flexCheckChecked">Gluten-free</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+        <label class="form-check-label press-start-font" for="flexCheckChecked">Others: </label>
+    </div>
+</div>
+<!-- Multiple Choice -->
+<div class="mc-container disable-item">
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label press-start-font" for="flexRadioDefault1">Yes, I study at De Anza College.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label press-start-font" for="flexRadioDefault1">Yes, I study at Foothill College.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label press-start-font" for="flexRadioDefault1">I am an FHDA Alumni.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label press-start-font" for="flexRadioDefault1">I have never attended Foothill/De Anza College.</label>
+    </div>
+</div>
+<!-- Buttons -->
+<div class="centralized buttons">
+    <button type="button" class="btn btn-info rounded-button hide-item" id="prevButton" onclick="prevQuestion()">< Back  </button>
+    <button type="button" class="btn btn-info rounded-button" id="nextButton" onclick="nextQuestion()">  Next ></button>
+    <button type="button" class="btn btn-success rounded-button disable-item" id="submitButton" onclick="submitPressed()">Submit</button>
+</div>
+<!-- Progress Bar -->
+<div class="progress centralized custom-bar" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar" id="progressBar" style="width: 25%"></div>
+</div>
+<script>
+    // Array of questions
+    const questions = [
+        "What is your email address?",
+        "What is your full name?",
+        "What is your preferred name?",
+        "What is your FHDA CWID?",
+        "Are you currently an FHDA student?",
+        "What year of study are you in?",
+        "What is your preferred email address?",
+        "What is your skill level?",
+        "How many hackathons have you been a part of?",
+        "If you have any dietary restrictions, please select them here.",
+        "What is your T-Shirt Size?",
+        "Will you have computer access during the hackathon?",
+        "Do you have any accommodation needs?",
+        "Why are you attending DAHacks 3.0?",
+        "Do you have any previous coding/hackathon experience?",
+        "What's your major?"
+    ];
+
+    // Current question index
+    let currentIndex = 0;
+
+    function displayQuestion() {
+        const questionContainer = document.getElementById('questionContainer');
+        questionContainer.textContent = questions[currentIndex];
+        updateButtons();
+        updateProgressBar();
+    }
+
+    function updateButtons() {
+        document.getElementById('prevButton').classList.toggle('hide-item', currentIndex === 0);
+        document.getElementById('nextButton').classList.toggle('disable-item', currentIndex === questions.length - 1);
+        document.getElementById('submitButton').classList.toggle('disable-item', currentIndex !== questions.length - 1);
+    }
+
+    function updateProgressBar() {
+        const progressBar = document.getElementById('progressBar');
+        const progress = ((currentIndex + 1) / questions.length) * 100;
+        progressBar.style.width = `${progress}%`;
+    }
+
+    function nextQuestion() {
+        if (currentIndex < questions.length - 1) {
+            currentIndex++;
+            displayQuestion();
+        }
+    }
+
+    function prevQuestion() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            displayQuestion();
+        }
+    }
+
+    function submitPressed() {
+        alert('Form submitted!');
+        // You can also perform actual form submission or other actions here.
+    }
+</script>
     </div>
   </div>
 </div>
