@@ -165,8 +165,9 @@
         margin: 0;
     }
 
-    .question-1 {
+    .question-container {
         top: 42%;
+        left: 50%;
         display: flex;
         flex-wrap: nowrap;
         align-items: center; /* Vertically center items */
@@ -175,11 +176,18 @@
         width: 60%;
     }
 
-    .input-1 {
+    .question-label {
+        font-size: 32px; /* Font Size */
+        font-family: 'Press Start 2P', cursive; /* Pixelated Font */
+        color: #d3d3d3; /* Text Color */
+        flex-wrap: nowrap;
+    }
+
+    .input-container {
         position: absolute;
         top: 55%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* Center horizontally and vertically */
+        right: 40%;
+        transform: translate(+0%, -50%); /* Center horizontally and vertically */
         display: flex;
         align-items: center; /* Vertically center items */
         text-align: center; /* Center text horizontally */
@@ -188,32 +196,73 @@
         margin: 0;
         gap: 10px;
     }
-
-    .progress-bar {
-        top: 80%;
+    
+    .input-container-2 {
+        top: 59%;
     }
 
-    .question-label {
-        font-size: 32px; /* Adjust to your desired size */
-        font-family: 'Press Start 2P', cursive; /* Pixelated font */
-        color: #d3d3d3; /* Optional: Change text color */
-        margin: 0;
-        flex-wrap: nowrap;
+    .input-container-3 {
+        position: relative;
+        transform: default; /* Center horizontally and vertically */
     }
 
-    .press-start-font {
+    .input-label {
         font-size: 16px; /* Adjust to your desired size */
         font-family: 'Press Start 2P', cursive; /* Pixelated font */
         color: #d3d3d3; /* Optional: Change text color */
+        margin: 0;
+        width: 90%;
+    }
+
+    .input-label-2 {
+        width: auto;
+    }
+
+    .input-control {
+        width: 200px; /* Set a specific width */
+        flex: none; /* Prevent the input from expanding to fill the available space */
+        color: #a9a9a9;
+        margin: 0;
+    }
+
+    .input-control-long {
+        position: relative;
+        width: 800px; /* Width of the textarea */
+        min-height: 80px; /* Minimum height of the textarea */
+        padding: 10px; /* Padding inside the textarea */
+        border: 2px solid #808080; /* Border color */
+        border-radius: 5px; /* Rounded corners */
+        color: #ffffff; /* Text color */
+        background-color: #333333; /* Background color */
+        overflow: auto; /* Show scrollbars when content overflows */
+        resize: vertical; /* Allow vertical resizing only */
+        box-sizing: border-box; /* Include padding and border in width/height calculation */
+        white-space: pre-wrap; /* Preserve whitespace and wrap text */
+        color: #a9a9a9;
+        margin: 0;
     }
 
     .mc-container {
         position: absolute;
         top: 58%;
-        left: 52%;
+        left: 50%;
         transform: translate(-50%, -50%); /* Center horizontally and vertically */
         flex-wrap: nowrap;
         margin: 0;
+    }
+
+    .mc-container-2 {
+       left: 54%;
+    }
+
+    .form-check {
+        margin: 10px;
+    }
+    
+    .form-check-input {
+        width: 20px; /* Adjust the size */
+        height: 20px; /* Adjust the size */
+        margin-right: 30px; /* Adjust the value to your desired margin */
     }
 
     .form-check-wrapper {
@@ -224,32 +273,14 @@
         display: flex;
         flex-direction: column; /* Stack child elements vertically */
         gap: 10px; /* Optional: Add space between checkboxes */
+        margin: 0;
     }
 
-    .input-control {
-        width: 75%; /* Set a specific width */
-        flex: none; /* Prevent the input from expanding to fill the available space */
-        color: #a9a9a9;
-    }
-
-    .input-container {
-        position: relative;
-    }
-
-    .input-long {
-        width: 30%; /* Width of the textarea */
-        min-height: 5%; /* Minimum height of the textarea */
-        padding: 10px; /* Padding inside the textarea */
-        border: 2px solid #007bff; /* Border color */
-        border-radius: 5px; /* Rounded corners */
-        font-size: 16px; /* Font size */
-        color: #ffffff; /* Text color */
-        background-color: #333333; /* Background color */
-        overflow: auto; /* Show scrollbars when content overflows */
-        resize: vertical; /* Allow vertical resizing only */
-        box-sizing: border-box; /* Include padding and border in width/height calculation */
-        white-space: pre-wrap; /* Preserve whitespace and wrap text */
-        color: #a9a9a9;
+    .buttons {
+        top: 85%;
+        justify-content: space-between; /* Space between buttons */
+        width: 70%; /* Adjust the width of the container */
+        margin: 0 auto; /* Center the container */
     }
 
     .rounded-button {
@@ -258,11 +289,6 @@
         font-family: 'Nerko One', cursive; /* Pixelated font */
         border-radius: 30px; /* Adjust the value to get the desired roundness */
         white-space: pre;
-    }
-
-    .buttons {
-        top: 85%;
-        gap: 1170px;
     }
 
     .custom-bar {
@@ -278,90 +304,180 @@
     .disable-item {
         display: none;
     }
-
-    .form-check-input {
-        width: 20px; /* Adjust the size */
-        height: 20px; /* Adjust the size */
-        margin-right: 10px; /* Adjust the value to your desired margin */
-    }
-
-    .form-check {
-        margin: 25px;
-    }
-
-    .form-check-label {
-
-    }
 </style>
 <!-- Background -->
 <div class="fullscreen-background"></div>
 <!-- Question -->
-<div class="mb-3 centralized question-1">
-    <label for="exampleFormControlInput1" class="form-label question-label" id="questionContainer">What is your email address?</label>
+<div class="centralized question-container">
+    <label class="form-label question-label" id="questionLabel">What is your Full Name?</label>
 </div>
 <!-- Question 1 -->
-<div class="mb-3 input-1">
-    <label for="exampleFormControlInput1" class="form-label press-start-font" id="inputName">Name: </label>
-    <input type="email" class="input-control bg-dark" id="exampleFormControlInput1" placeholder="name@example.com">
+<div class="input-container" id="Q0">
+    <label class="form-label input-label">Full Name: </label>
+    <input type="text" class="input-control bg-dark" placeholder="Mike Tyson">
+</div>
+<div class="input-container input-container-2" id="Q100">
+    <label class="form-label input-label">Preferred Name: </label>
+    <input type="text" class="input-control bg-dark" placeholder="Mike Tyson">
 </div>
 <!-- Question 2 -->
-<div class="mb-3 input-1">
-    <input type="text" class="input-control bg-dark" placeholder="Mike Tyson" aria-label="FullName">
+<div class="input-container disable-item" id="Q1">
+    <label class="form-label input-label">Email: </label>
+    <input type="email" class="input-control bg-dark" placeholder="name@example.com">
 </div>
 <!-- Question 3 -->
-<div class="mb-3 input-1 input-container">
-    <textarea class="input-long bg-dark" aria-label="With textarea"></textarea>
+<div class="input-container disable-item" id="Q2">
+    <label class="form-label input-label">FHDA CWID: </label>
+    <input type="text" class="input-control bg-dark" placeholder="01234567">
 </div>
 <!-- Question 4 -->
+<!-- Multiple Choice -->
+<div class="mc-container mc-container-2 disable-item" id="Q3">
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label" for="flexRadioDefault1">Yes, I study at De Anza College.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label" for="flexRadioDefault1">Yes, I study at Foothill College.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label" for="flexRadioDefault1">No, I am an FHDA Alumni.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label" for="flexRadioDefault1">No, I have never attended Foothill/De Anza College.</label>
+    </div>
+</div>
 <!-- Question 5 -->
+<div class="mc-container mc-container-2 disable-item" id="Q4">
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">First year.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Second year.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Third year.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Fourth year or higher.</label>
+    </div>
+</div>
 <!-- Question 6 -->
+<div class="input-container disable-item" id="Q5">
+    <label class="form-label input-label">Major: </label>
+    <input type="text" class="input-control bg-dark" placeholder="Computer Science">
+</div>
 <!-- Question 7 -->
+<div class="mc-container mc-container-2 disable-item" id="Q6">
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Beginner.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Intermediate.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Advanced.</label>
+    </div>
+</div>
 <!-- Question 8 -->
+<div class="mc-container disable-item" id="Q7">
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">0.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">1-2.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">3+.</label>
+    </div>
+</div>
 <!-- Question 9 -->
-<!-- Question 10 -->
-<!-- Question 11 -->
-<!-- Question 12 -->
-<!-- Question 13 -->
-<!-- Question 14 -->
-<!-- Input -->
 <!-- Checkboxes -->
-<div class="form-check-wrapper mc-container disable-item">
+<div class="form-check-wrapper mc-container disable-item" id="Q8">
     <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label press-start-font" for="flexCheckDefault">Vegetarian</label>
+        <label class="form-check-label input-label input-label-2" for="flexCheckDefault">Vegetarian</label>
     </div>
     <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-        <label class="form-check-label press-start-font" for="flexCheckChecked">Vegan</label>
+        <label class="form-check-label input-label input-label-2" for="flexCheckChecked">Vegan</label>
     </div>
     <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-        <label class="form-check-label press-start-font" for="flexCheckChecked">Gluten-free</label>
+        <label class="form-check-label input-label input-label-2" for="flexCheckChecked">Gluten-free</label>
     </div>
     <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-        <label class="form-check-label press-start-font" for="flexCheckChecked">Others: </label>
+        <label class="form-check-label input-label input-label-2" for="flexCheckChecked">Others: </label>
     </div>
 </div>
-<!-- Multiple Choice -->
-<div class="mc-container disable-item">
+<!-- Question 10 -->
+<div class="input-container input-container-3 disable-item" id="Q9">
+    <label class="form-label input-label">FHDA CWID: </label>
+    <textarea class="input-control-long bg-dark"></textarea>
+</div>
+<!-- Question 11 -->
+<div class="mc-container mc-container-2 disable-item" id="Q10">
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label press-start-font" for="flexRadioDefault1">Yes, I study at De Anza College.</label>
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Small. (S)</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label press-start-font" for="flexRadioDefault1">Yes, I study at Foothill College.</label>
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Medium. (M)</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label press-start-font" for="flexRadioDefault1">I am an FHDA Alumni.</label>
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Large. (L)</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label press-start-font" for="flexRadioDefault1">I have never attended Foothill/De Anza College.</label>
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Extra Large. (XL)</label>
     </div>
 </div>
+<!-- Question 12 -->
+<div class="mc-container mc-container-2 disable-item" id="Q11">
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">I have a laptop that I can code/work on.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">I will bring a desktop computer to the event. (Why???)</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">I will not have access to a "good" computer.</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">I will not have access to a computer.</label>
+    </div>
+</div>
+<!-- Question 13 -->
+<div class="input-container input-container-3 disable-item" id="Q12">
+    <label class="form-label input-label">FHDA CWID: </label>
+    <textarea class="input-control-long bg-dark"></textarea>
+</div>
+<!-- Question 14 -->
+<div class="input-container input-container-3 disable-item" id="Q13">
+    <label class="form-label input-label">FHDA CWID: </label>
+    <textarea class="input-control-long bg-dark"></textarea>
+</div>
+<!-- Input -->
 <!-- Buttons -->
 <div class="centralized buttons">
     <button type="button" class="btn btn-info rounded-button hide-item" id="prevButton" onclick="prevQuestion()">< Back  </button>
@@ -370,37 +486,54 @@
 </div>
 <!-- Progress Bar -->
 <div class="progress centralized custom-bar" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-    <div class="progress-bar" id="progressBar" style="width: 25%"></div>
+    <div class="progress-bar" id="progressBar" style="width: 7.14%"></div>
 </div>
 <script>
     // Array of questions
     const questions = [
-        "What is your email address?",
         "What is your full name?",
-        "What is your preferred name?",
+        "What is your email address?",
         "What is your FHDA CWID?",
-        "Are you currently an FHDA student?",
+        "Are you current an FHDA student?",
         "What year of study are you in?",
-        "What is your preferred email address?",
+        "What is your major?",
         "What is your skill level?",
         "How many hackathons have you been a part of?",
-        "If you have any dietary restrictions, please select them here.",
+        "Do you have any dietary restrictions?",
+        "Do you have any additional accommodational needs?",
         "What is your T-Shirt Size?",
-        "Will you have computer access during the hackathon?",
-        "Do you have any accommodation needs?",
+        "Will you have access to a computer during the hackathon?",
         "Why are you attending DAHacks 3.0?",
-        "Do you have any previous coding/hackathon experience?",
-        "What's your major?"
+        "What additional information would you like us to know? Feel free to include any significant coding or hackathon experiences below!"
     ];
 
     // Current question index
     let currentIndex = 0;
 
     function displayQuestion() {
-        const questionContainer = document.getElementById('questionContainer');
-        questionContainer.textContent = questions[currentIndex];
+        // Update the question label
+        const questionLabel = document.getElementById('questionLabel');
+        questionLabel.textContent = questions[currentIndex];
+
+        // Hide all question containers
+        const allQuestionContainers = document.querySelectorAll('.input-container, .mc-container, .form-check-wrapper, .input-container-3');
+        allQuestionContainers.forEach(container => container.classList.add('disable-item'));
+
+        // Show the current question container
+        const currentQuestionId = `Q${currentIndex}`;
+        const currentQuestionContainer = document.getElementById(currentQuestionId);
+        if (currentQuestionContainer) {
+            currentQuestionContainer.classList.remove('disable-item');
+        }
+
+        if (currentIndex === 0) {
+            const q100Element = document.getElementById('Q100');
+            q100Element.classList.remove('disable-item');
+        }
+
         updateButtons();
         updateProgressBar();
+
     }
 
     function updateButtons() {
