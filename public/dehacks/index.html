@@ -152,8 +152,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap">
-<!--  -->
 <style>
+    .fullscreen-background {
+        background-image: url('/Flag_Design_-_DA_Developers.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: #000; /* Fallback color if the image fails to load */
+
+        /*  Ensure it covers the entire viewport */
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1; /*  Send it behind other content */
+    }
+
     .centralized {
         position: absolute;
         top: 50%;
@@ -177,9 +192,9 @@
     }
 
     .question-label {
-        font-size: 32px; /* Font Size */
-        font-family: 'Press Start 2P', cursive; /* Pixelated Font */
-        color: #d3d3d3; /* Text Color */
+        font-size: 32px;
+        font-family: 'Press Start 2P', cursive;
+        color: #d3d3d3;
         flex-wrap: nowrap;
     }
 
@@ -202,8 +217,15 @@
     }
 
     .input-container-3 {
-        position: relative;
-        transform: default; /* Center horizontally and vertically */
+        position: absolute;
+        top: 54%;
+        left: 50%;
+        display: flex;
+        align-items: center; /* Vertically center items */
+        text-align: center; /* Center text horizontally */
+        justify-content: center; /* Center contents horizontally */
+        flex-wrap: nowrap;
+        margin: 0;
     }
 
     .input-label {
@@ -227,8 +249,10 @@
 
     .input-control-long {
         position: relative;
+        top: 50%;
+        right: 50%;
         width: 800px; /* Width of the textarea */
-        min-height: 80px; /* Minimum height of the textarea */
+        min-height: 120px; /* Minimum height of the textarea */
         padding: 10px; /* Padding inside the textarea */
         border: 2px solid #808080; /* Border color */
         border-radius: 5px; /* Rounded corners */
@@ -252,11 +276,29 @@
     }
 
     .mc-container-2 {
-       left: 54%;
+        top: 59.25%;
+        left: 54%;
+    }
+
+    .mc-container-3 {
+        left: 54%;
+    }
+
+    .mc-container-4 {
+        top: 56%;
+        left: 51%;
+    }
+
+    .mc-container-5 {
+        left: 51%;
     }
 
     .form-check {
         margin: 10px;
+    }
+
+    .form-check-2 {
+        margin: 0px;
     }
     
     .form-check-input {
@@ -308,173 +350,209 @@
 <!-- Background -->
 <div class="fullscreen-background"></div>
 <!-- Question -->
-<div class="centralized question-container">
+<!-- Question 1 -->
+<div class="centralized question-container" id="Q0">
     <label class="form-label question-label" id="questionLabel">What is your Full Name?</label>
 </div>
-<!-- Question 1 -->
-<div class="input-container" id="Q0">
+<div class="input-container" id="A0">
     <label class="form-label input-label">Full Name: </label>
     <input type="text" class="input-control bg-dark" placeholder="Mike Tyson">
 </div>
-<div class="input-container input-container-2" id="Q100">
+<div class="input-container input-container-2" id="A100">
     <label class="form-label input-label">Preferred Name: </label>
     <input type="text" class="input-control bg-dark" placeholder="Mike Tyson">
 </div>
 <!-- Question 2 -->
-<div class="input-container disable-item" id="Q1">
+<div class="centralized question-container disable-item" id="Q1">
+    <label class="form-label question-label" id="questionLabel">What is your email address?</label>
+</div>
+<div class="input-container disable-item" id="A1">
     <label class="form-label input-label">Email: </label>
     <input type="email" class="input-control bg-dark" placeholder="name@example.com">
 </div>
 <!-- Question 3 -->
-<div class="input-container disable-item" id="Q2">
+<div class="centralized question-container disable-item" id="Q2">
+    <label class="form-label question-label" id="questionLabel">What is your FHDA CWID?</label>
+</div>
+<div class="input-container disable-item" id="A2">
     <label class="form-label input-label">FHDA CWID: </label>
     <input type="text" class="input-control bg-dark" placeholder="01234567">
 </div>
 <!-- Question 4 -->
+<div class="centralized question-container disable-item" id="Q3">
+    <label class="form-label question-label" id="questionLabel">Are you current an FHDA student?</label>
+</div>
 <!-- Multiple Choice -->
-<div class="mc-container mc-container-2 disable-item" id="Q3">
+<div class="mc-container mc-container-2 disable-item" id="A3">
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA3" id="flexRadioDefault1">
         <label class="form-check-label input-label" for="flexRadioDefault1">Yes, I study at De Anza College.</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA3" id="flexRadioDefault1">
         <label class="form-check-label input-label" for="flexRadioDefault1">Yes, I study at Foothill College.</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA3" id="flexRadioDefault1">
         <label class="form-check-label input-label" for="flexRadioDefault1">No, I am an FHDA Alumni.</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA3" id="flexRadioDefault1">
         <label class="form-check-label input-label" for="flexRadioDefault1">No, I have never attended Foothill/De Anza College.</label>
     </div>
 </div>
 <!-- Question 5 -->
-<div class="mc-container mc-container-2 disable-item" id="Q4">
+<div class="centralized question-container disable-item" id="Q4">
+    <label class="form-label question-label" id="questionLabel">What year of study are you in?</label>
+</div>
+<div class="mc-container mc-container-3 disable-item" id="A4">
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA4" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">First year.</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA4" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Second year.</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA4" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Third year.</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA4" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Fourth year or higher.</label>
     </div>
 </div>
 <!-- Question 6 -->
-<div class="input-container disable-item" id="Q5">
+<div class="centralized question-container disable-item" id="Q5">
+    <label class="form-label question-label" id="questionLabel">What is your major?</label>
+</div>
+<div class="input-container disable-item" id="A5">
     <label class="form-label input-label">Major: </label>
     <input type="text" class="input-control bg-dark" placeholder="Computer Science">
 </div>
 <!-- Question 7 -->
-<div class="mc-container mc-container-2 disable-item" id="Q6">
+<div class="centralized question-container disable-item" id="Q6">
+    <label class="form-label question-label" id="questionLabel">What is your skill level?</label>
+</div>
+<div class="mc-container mc-container-4 disable-item" id="A6">
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA6" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Beginner.</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA6" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Intermediate.</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioflexRadioA6Default" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Advanced.</label>
     </div>
 </div>
 <!-- Question 8 -->
-<div class="mc-container disable-item" id="Q7">
+<div class="centralized question-container disable-item" id="Q7">
+    <label class="form-label question-label" id="questionLabel">How many hackathons have you been a part of?</label>
+</div>
+<div class="mc-container disable-item" id="A7">
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA7" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">0.</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA7" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">1-2.</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA7" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">3+.</label>
     </div>
 </div>
 <!-- Question 9 -->
+<div class="centralized question-container disable-item" id="Q8">
+    <label class="form-label question-label" id="questionLabel">Do you have any dietary restrictions?</label>
+</div>
 <!-- Checkboxes -->
-<div class="form-check-wrapper mc-container disable-item" id="Q8">
-    <div class="form-check">
+<div class="form-check-wrapper mc-container disable-item" id="A8">
+    <div class="form-check form-check-2">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
         <label class="form-check-label input-label input-label-2" for="flexCheckDefault">Vegetarian</label>
     </div>
-    <div class="form-check">
+    <div class="form-check form-check-2">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
         <label class="form-check-label input-label input-label-2" for="flexCheckChecked">Vegan</label>
     </div>
-    <div class="form-check">
+    <div class="form-check form-check-2">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
         <label class="form-check-label input-label input-label-2" for="flexCheckChecked">Gluten-free</label>
     </div>
-    <div class="form-check">
+    <div class="form-check form-check-2">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
         <label class="form-check-label input-label input-label-2" for="flexCheckChecked">Others: </label>
     </div>
 </div>
 <!-- Question 10 -->
-<div class="input-container input-container-3 disable-item" id="Q9">
-    <label class="form-label input-label">FHDA CWID: </label>
+<div class="centralized question-container disable-item" id="Q9">
+    <label class="form-label question-label" id="questionLabel">Do you have any additional accommodational needs?</label>
+</div>
+<div class="input-container-3 disable-item" id="A9">
     <textarea class="input-control-long bg-dark"></textarea>
 </div>
 <!-- Question 11 -->
-<div class="mc-container mc-container-2 disable-item" id="Q10">
+<div class="centralized question-container disable-item" id="Q10">
+    <label class="form-label question-label" id="questionLabel">What is your T-Shirt Size?</label>
+</div>
+<div class="mc-container mc-container-5 disable-item" id="A10">
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA10" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Small. (S)</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA10" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Medium. (M)</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA10" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Large. (L)</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA10" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">Extra Large. (XL)</label>
     </div>
 </div>
 <!-- Question 12 -->
-<div class="mc-container mc-container-2 disable-item" id="Q11">
+<div class="centralized question-container disable-item" id="Q11">
+    <label class="form-label question-label" id="questionLabel">Will you have access to a computer during the hackathon?</label>
+</div>
+<div class="mc-container mc-container-2 disable-item" id="A11">
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA11" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">I have a laptop that I can code/work on.</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA11" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">I will bring a desktop computer to the event. (Why???)</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA11" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">I will not have access to a "good" computer.</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA11" id="flexRadioDefault1">
         <label class="form-check-label input-label input-label-2" for="flexRadioDefault1">I will not have access to a computer.</label>
     </div>
 </div>
 <!-- Question 13 -->
-<div class="input-container input-container-3 disable-item" id="Q12">
-    <label class="form-label input-label">FHDA CWID: </label>
+<div class="centralized question-container disable-item" id="Q12">
+    <label class="form-label question-label" id="questionLabel">Why are you attending DAHacks 3.0?</label>
+</div>
+<div class="input-container-3 disable-item" id="A12">
     <textarea class="input-control-long bg-dark"></textarea>
 </div>
 <!-- Question 14 -->
-<div class="input-container input-container-3 disable-item" id="Q13">
-    <label class="form-label input-label">FHDA CWID: </label>
+<div class="centralized question-container disable-item" id="Q13">
+    <label class="form-label question-label" id="questionLabel">What additional information would you like us to know? Feel free to include any significant coding or hackathon experiences below!</label>
+</div>
+<div class="input-container-3 disable-item" id="A13">
     <textarea class="input-control-long bg-dark"></textarea>
 </div>
 <!-- Input -->
@@ -489,67 +567,30 @@
     <div class="progress-bar" id="progressBar" style="width: 7.14%"></div>
 </div>
 <script>
-    // Array of questions
-    const questions = [
-        "What is your full name?",
-        "What is your email address?",
-        "What is your FHDA CWID?",
-        "Are you current an FHDA student?",
-        "What year of study are you in?",
-        "What is your major?",
-        "What is your skill level?",
-        "How many hackathons have you been a part of?",
-        "Do you have any dietary restrictions?",
-        "Do you have any additional accommodational needs?",
-        "What is your T-Shirt Size?",
-        "Will you have access to a computer during the hackathon?",
-        "Why are you attending DAHacks 3.0?",
-        "What additional information would you like us to know? Feel free to include any significant coding or hackathon experiences below!"
-    ];
-
     // Current question index
     let currentIndex = 0;
+    const questionCount = 13;
 
     function displayQuestion() {
-        // Update the question label
-        const questionLabel = document.getElementById('questionLabel');
-        questionLabel.textContent = questions[currentIndex];
+        // Hide all containers
+        document.querySelectorAll('.input-container, .mc-container, .form-check-wrapper, .question-container, .input-container-3').forEach(container => container.classList.add('disable-item'));
 
-        // Hide all question containers
-        const allQuestionContainers = document.querySelectorAll('.input-container, .mc-container, .form-check-wrapper, .input-container-3');
-        allQuestionContainers.forEach(container => container.classList.add('disable-item'));
+        // Show appropriate container
+        document.getElementById(`Q${currentIndex}`).classList.remove('disable-item');
+        document.getElementById(`A${currentIndex}`).classList.remove('disable-item');
+        if (currentIndex === 0) {document.getElementById('A100').classList.remove('disable-item');}
 
-        // Show the current question container
-        const currentQuestionId = `Q${currentIndex}`;
-        const currentQuestionContainer = document.getElementById(currentQuestionId);
-        if (currentQuestionContainer) {
-            currentQuestionContainer.classList.remove('disable-item');
-        }
-
-        if (currentIndex === 0) {
-            const q100Element = document.getElementById('Q100');
-            q100Element.classList.remove('disable-item');
-        }
-
-        updateButtons();
-        updateProgressBar();
-
-    }
-
-    function updateButtons() {
+        // Update buttons
         document.getElementById('prevButton').classList.toggle('hide-item', currentIndex === 0);
-        document.getElementById('nextButton').classList.toggle('disable-item', currentIndex === questions.length - 1);
-        document.getElementById('submitButton').classList.toggle('disable-item', currentIndex !== questions.length - 1);
-    }
+        document.getElementById('nextButton').classList.toggle('disable-item', currentIndex === questionCount - 1);
+        document.getElementById('submitButton').classList.toggle('disable-item', currentIndex !== questionCount - 1);
 
-    function updateProgressBar() {
-        const progressBar = document.getElementById('progressBar');
-        const progress = ((currentIndex + 1) / questions.length) * 100;
-        progressBar.style.width = `${progress}%`;
+        // Update progress bar
+        document.getElementById('progressBar').style.width = `${((currentIndex + 1) / questionCount) * 100}%`;
     }
 
     function nextQuestion() {
-        if (currentIndex < questions.length - 1) {
+        if (currentIndex < questionCount - 1) {
             currentIndex++;
             displayQuestion();
         }
@@ -564,9 +605,9 @@
 
     function submitPressed() {
         alert('Form submitted!');
-        // You can also perform actual form submission or other actions here.
     }
 </script>
+
     </div>
   </div>
 </div>

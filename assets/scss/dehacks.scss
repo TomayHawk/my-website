@@ -1,29 +1,7 @@
-$background-image: url('/Flag_Design_-_DA_Developers.png');
-$background-position: center;
-$background-size: cover;
-$background-repeat: no-repeat;
-$background-color: #000; // Fallback color if the image fails to load
-
 body,
 html {
     height: 100%;
     margin: 0;
-}
-
-.fullscreen-background {
-    background-image: $background-image;
-    background-position: $background-position;
-    background-size: $background-size;
-    background-repeat: $background-repeat;
-    background-color: $background-color;
-
-    // Ensure it covers the entire viewport
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1; // Send it behind other content
 }
 
 body {

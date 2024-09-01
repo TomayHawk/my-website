@@ -3,19 +3,6 @@ html {
   height: 100%;
   margin: 0; }
 
-.fullscreen-background {
-  background-image: url("/Flag_Design_-_DA_Developers.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #000;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1; }
-
 body {
   display: flex;
   flex-direction: column; }
