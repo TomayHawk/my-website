@@ -439,9 +439,34 @@ weight = 60
 <script>
     // Current question index
     let currentIndex = 0;
+    let prevIndex = 0;
+    let canProceed = false;
     const questionCount = 13;
 
     function displayQuestion() {
+        /*
+        const prevQuestionElement = document.getElementById(`Q${prevIndex}`);
+        const nextQuestionElement = document.getElementById(`Q${currentIndex}`);
+
+        // Reset transform before applying new class
+        prevQuestionElement.style.transform = '';
+        nextQuestionElement.style.transform = '';
+
+        // Apply the appropriate transform based on the direction
+        if (prevIndex < currentIndex) {
+            prevQuestionElement.classList.add('slide-transition', 'slide-exit-active');
+            prevQuestionElement.style.transform = 'translateY(300px)';
+            nextQuestionElement.classList.add('slide-transition', 'slide-enter-active');
+            nextQuestionElement.style.transform = 'translateY(-300px)';
+        } else {
+            prevQuestionElement.classList.add('slide-transition', 'slide-exit-active');
+            prevQuestionElement.style.transform = 'translateY(-300px)';
+            nextQuestionElement.classList.add('slide-transition', 'slide-enter-active');
+            nextQuestionElement.style.transform = 'translateY(300px)';
+        }
+        */
+
+        
         // Hide all containers
         document.querySelectorAll('.input-container, .mc-container, .form-check-wrapper, .question-container, .input-container-3').forEach(container => container.classList.add('disable-item'));
 
@@ -449,6 +474,7 @@ weight = 60
         document.getElementById(`Q${currentIndex}`).classList.remove('disable-item');
         document.getElementById(`A${currentIndex}`).classList.remove('disable-item');
         if (currentIndex === 0) {document.getElementById('A100').classList.remove('disable-item');}
+        
 
         // Update buttons
         document.getElementById('prevButton').classList.toggle('hide-item', currentIndex === 0);
@@ -459,8 +485,38 @@ weight = 60
         document.getElementById('progressBar').style.width = `${((currentIndex + 1) / questionCount) * 100}%`;
     }
 
+    /*
+    // Function to check input fields and toggle buttons
+    function checkInputs() {
+        // Get all input fields
+        const inputs = document.querySelectorAll('.input-container input');
+    
+        // Check if any input field has a value
+        const hasInput = Array.from(inputs).some(input => input.value.trim() !== '');
+
+        // Get the buttons
+        const submitButton = document.getElementById('submitButton');
+        const nextButton = document.getElementById('nextButton');
+
+        // Enable or disable buttons based on input
+        if (hasInput) {
+            submitButton.disabled = false;
+            nextButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+            nextButton.disabled = true;
+        }
+    }
+
+    // Add event listeners to input fields
+    document.querySelectorAll('.input-container input').forEach(input => {
+        input.addEventListener('input', checkInputs);
+    });
+    */
+
     function nextQuestion() {
-        if (currentIndex < questionCount - 1) {
+        if (canProceed && (currentIndex < questionCount - 1)) {
+            prevIndex = currentIndex
             currentIndex++;
             displayQuestion();
         }
@@ -468,12 +524,15 @@ weight = 60
 
     function prevQuestion() {
         if (currentIndex > 0) {
+            prevIndex = currentIndex
             currentIndex--;
             displayQuestion();
         }
     }
 
     function submitPressed() {
-        alert('Form submitted!');
+        if (canProceed) {
+            alert('Form submitted!');
+        }
     }
 </script>

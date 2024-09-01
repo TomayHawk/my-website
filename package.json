@@ -23,6 +23,7 @@
     "exec-bin": "^1.0.0",
     "graceful-fs": "^4.2.11",
     "hugo-installer": "4.0.1",
+    "mdb-ui-kit": "^7.3.2",
     "natives": "^1.1.6",
     "postcss": "^8.4.41",
     "postcss-cli": "^11.0.0"
