@@ -346,13 +346,114 @@
     .disable-item {
         display: none;
     }
+
+    @keyframes ease-in-from-above {
+        0% {
+            transform: translateY(-100%); /* Start above the view */
+            opacity: 0; /* Optional: start invisible */
+        }
+        100% {
+            transform: translateY(0); /* End at the original position */
+            opacity: 1; /* Optional: end visible */
+        }
+    }
+
+    @keyframes ease-out-to-below {
+        0% {
+            transform: translateY(0); /* Start at the current position */
+            opacity: 1; /* Fully visible */
+        }
+        100% {
+            transform: translateY(100%); /* Move down */
+            opacity: 0; /* Fade out */
+        }
+    }
+
+    @keyframes ease-in-from-below {
+        0% {
+            transform: translateY(100%); /* Start below the view */
+            opacity: 0; /* Optional: start invisible */
+        }
+        100% {
+            transform: translateY(0); /* End at the original position */
+            opacity: 1; /* Optional: end visible */
+        }
+    }
+
+    @keyframes ease-out-to-above {
+        0% {
+            transform: translateY(0); /* Start at the current position */
+            opacity: 1; /* Fully visible */
+        }
+        100% {
+            transform: translateY(-100%); /* Move up */
+            opacity: 0; /* Fade out */
+        }
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0; /* Optional: start invisible */
+        }
+        100% {
+            opacity: 1; /* Optional: end visible */
+        }
+    }
+
+    @keyframes fade-out {
+        0% {
+            opacity: 1; /* Fully visible */
+        }
+        100% {
+            opacity: 0; /* Fade out */
+        }
+    }
+
+    .question-transition {
+    }
+    
+    .question-transition.show1 {
+        /* Apply animation */
+        opacity: 1;
+        animation: ease-in-from-above 0.5s ease-out;
+    }
+    
+    .question-transition.show2 {
+        /* Apply animation */
+        opacity: 1;
+        animation: ease-in-from-below 0.5s ease-out;
+    }
+
+    .question-transition.hide1 {
+        animation: ease-out-to-below 0.5s ease-out;
+        /* Optional: Ensure the element is hidden after the animation */
+        opacity: 0;
+    }
+
+    .question-transition.hide2 {
+        animation: ease-out-to-above 0.5s ease-out;
+        /* Optional: Ensure the element is hidden after the animation */
+        opacity: 0;
+    }
+
+    .input-container.fade-in, .mc-container.fade-in, .input-container-3.fade-in {
+        opacity: 1;
+        animation: fade-in 0.5s ease-out;
+    }
+
+    .input-container.fade-out, .mc-container.fade-out, .input-container-3.fade-out {
+        opacity: 0;
+        animation: fade-out 0.5s ease-out;
+    }
 </style>
 <!-- Background -->
 <div class="fullscreen-background"></div>
 <!-- Question -->
 <!-- Question 1 -->
 <div class="centralized question-container" id="Q0">
-    <label class="form-label question-label">What is your Full Name?</label>
+    <div class="question-transition" id="T0">
+        <label class="form-label question-label">What is your Full Name?</label>
+    </div>
 </div>
 <div class="input-container" id="A0">
     <label class="form-label input-label">Full Name: </label>
@@ -364,7 +465,9 @@
 </div>
 <!-- Question 2 -->
 <div class="centralized question-container disable-item" id="Q1">
-    <label class="form-label question-label">What is your email address?</label>
+    <div class="question-transition" id="T1">
+        <label class="form-label question-label">What is your email address?</label>
+    </div>
 </div>
 <div class="input-container disable-item" id="A1">
     <label class="form-label input-label">Email: </label>
@@ -372,7 +475,9 @@
 </div>
 <!-- Question 3 -->
 <div class="centralized question-container disable-item" id="Q2">
-    <label class="form-label question-label">What is your FHDA CWID?</label>
+    <div class="question-transition" id="T2">
+        <label class="form-label question-label">What is your FHDA CWID?</label>
+    </div>
 </div>
 <div class="input-container disable-item" id="A2">
     <label class="form-label input-label">FHDA CWID: </label>
@@ -380,7 +485,9 @@
 </div>
 <!-- Question 4 -->
 <div class="centralized question-container disable-item" id="Q3">
-    <label class="form-label question-label">Are you current an FHDA student?</label>
+    <div class="question-transition" id="T3">
+        <label class="form-label question-label">Are you current an FHDA student?</label>
+    </div>
 </div>
 <!-- Multiple Choice -->
 <div class="mc-container mc-container-2 disable-item" id="A3">
@@ -403,7 +510,9 @@
 </div>
 <!-- Question 5 -->
 <div class="centralized question-container disable-item" id="Q4">
-    <label class="form-label question-label">What year of study are you in?</label>
+    <div class="question-transition" id="T4">
+        <label class="form-label question-label">What year of study are you in?</label>
+    </div>
 </div>
 <div class="mc-container mc-container-3 disable-item" id="A4">
     <div class="form-check">
@@ -425,7 +534,9 @@
 </div>
 <!-- Question 6 -->
 <div class="centralized question-container disable-item" id="Q5">
-    <label class="form-label question-label">What is your major?</label>
+    <div class="question-transition" id="T5">
+        <label class="form-label question-label">What is your major?</label>
+    </div>
 </div>
 <div class="input-container disable-item" id="A5">
     <label class="form-label input-label">Major: </label>
@@ -433,7 +544,9 @@
 </div>
 <!-- Question 7 -->
 <div class="centralized question-container disable-item" id="Q6">
-    <label class="form-label question-label">What is your skill level?</label>
+    <div class="question-transition" id="T6">
+        <label class="form-label question-label">What is your skill level?</label>
+    </div>
 </div>
 <div class="mc-container mc-container-4 disable-item" id="A6">
     <div class="form-check">
@@ -451,7 +564,9 @@
 </div>
 <!-- Question 8 -->
 <div class="centralized question-container disable-item" id="Q7">
-    <label class="form-label question-label">How many hackathons have you been a part of?</label>
+    <div class="question-transition" id="T7">
+        <label class="form-label question-label">How many hackathons have you been a part of?</label>
+    </div>
 </div>
 <div class="mc-container disable-item" id="A7">
     <div class="form-check">
@@ -469,7 +584,9 @@
 </div>
 <!-- Question 9 -->
 <div class="centralized question-container disable-item" id="Q8">
-    <label class="form-label question-label">Do you have any dietary restrictions?</label>
+    <div class="question-transition" id="T8">
+        <label class="form-label question-label">Do you have any dietary restrictions?</label>
+    </div>
 </div>
 <!-- Checkboxes -->
 <div class="form-check-wrapper mc-container disable-item" id="A8">
@@ -493,14 +610,18 @@
 </div>
 <!-- Question 10 -->
 <div class="centralized question-container disable-item" id="Q9">
-    <label class="form-label question-label">Do you have any additional accommodational needs?</label>
+    <div class="question-transition" id="T9">
+        <label class="form-label question-label">Do you have any additional accommodational needs?</label>
+    </div>
 </div>
 <div class="input-container-3 disable-item" id="A9">
     <textarea class="input-control-long bg-dark" id="accommodationNeeds"></textarea>
 </div>
 <!-- Question 11 -->
 <div class="centralized question-container disable-item" id="Q10">
-    <label class="form-label question-label">What is your T-Shirt Size?</label>
+    <div class="question-transition" id="T10">
+        <label class="form-label question-label">What is your T-Shirt Size?</label>
+    </div>
 </div>
 <div class="mc-container mc-container-5 disable-item" id="A10">
     <div class="form-check">
@@ -522,7 +643,9 @@
 </div>
 <!-- Question 12 -->
 <div class="centralized question-container disable-item" id="Q11">
-    <label class="form-label question-label">Will you have access to a computer during the hackathon?</label>
+    <div class="question-transition" id="T11">
+        <label class="form-label question-label">Will you have access to a computer during the hackathon?</label>
+    </div>
 </div>
 <div class="mc-container mc-container-2 disable-item" id="A11">
     <div class="form-check">
@@ -544,14 +667,18 @@
 </div>
 <!-- Question 13 -->
 <div class="centralized question-container disable-item" id="Q12">
-    <label class="form-label question-label">Why are you attending DAHacks 3.0?</label>
+    <div class="question-transition" id="T12">
+        <label class="form-label question-label">Why are you attending DAHacks 3.0?</label>
+    </div>
 </div>
 <div class="input-container-3 disable-item" id="A12">
     <textarea class="input-control-long bg-dark" id="attendReason"></textarea>
 </div>
 <!-- Question 14 -->
 <div class="centralized question-container disable-item" id="Q13">
+    <div class="question-transition" id="T13">
     <label class="form-label question-label">What additional information would you like us to know? Feel free to include any significant coding or hackathon experiences below!</label>
+    </div>
 </div>
 <div class="input-container-3 disable-item" id="A13">
     <textarea class="input-control-long bg-dark" id="additionalInformation"></textarea>
@@ -578,38 +705,34 @@
     let nextButton = document.getElementById('nextButton');
 
     function displayQuestion() {
+        document.getElementById('prevButton').disabled = true;
+        document.getElementById('nextButton').disabled = true;
+        document.getElementById('submitButton').disabled = true;
 
-        const prevQuestionElement = document.getElementById(`Q${prevIndex}`);
-        const nextQuestionElement = document.getElementById(`Q${currentIndex}`);
+        const prevQuestionElement = document.getElementById(`T${prevIndex}`);
+        const nextQuestionElement = document.getElementById(`T${currentIndex}`);
 
-        /*
-        // Reset transform before applying new class
-        prevQuestionElement.style.transform = '';
-        nextQuestionElement.style.transform = '';
-
-        // Apply the appropriate transform based on the direction
-        if (prevIndex < currentIndex) {
-            prevQuestionElement.classList.add('slide-transition', 'slide-exit-active');
-            prevQuestionElement.style.transform = 'translateY(300px)';
-            nextQuestionElement.classList.add('slide-transition', 'slide-enter-active');
-            nextQuestionElement.style.transform = 'translateY(-300px)';
-        } else {
-            prevQuestionElement.classList.add('slide-transition', 'slide-exit-active');
-            prevQuestionElement.style.transform = 'translateY(-300px)';
-            nextQuestionElement.classList.add('slide-transition', 'slide-enter-active');
-            nextQuestionElement.style.transform = 'translateY(300px)';
-        }
-        */
-
-        
-        // Hide all containers
-        document.querySelectorAll('.input-container, .mc-container, .form-check-wrapper, .question-container, .input-container-3').forEach(container => container.classList.add('disable-item'));
-
-        // Show appropriate container
         document.getElementById(`Q${currentIndex}`).classList.remove('disable-item');
         document.getElementById(`A${currentIndex}`).classList.remove('disable-item');
-        if (currentIndex === 0) {document.getElementById('A100').classList.remove('disable-item');}
-        
+
+        // Hide current question with animation
+        if (prevIndex < currentIndex) {
+            prevQuestionElement.classList.add('hide1');
+            nextQuestionElement.classList.add('show1');
+        } else {
+            prevQuestionElement.classList.add('hide2');
+            nextQuestionElement.classList.add('show2');
+        }
+
+        document.getElementById(`A${prevIndex}`).classList.add('fade-out')
+        document.getElementById(`A${currentIndex}`).classList.add('fade-in')
+
+        if (currentIndex === 0) {
+            document.getElementById(`A100`).classList.add('fade-in')
+        } else if (prevIndex === 0) {
+            document.getElementById(`A100`).classList.add('fade-out')
+        }
+
         // Update buttons
         document.getElementById('prevButton').classList.toggle('hide-item', currentIndex === 0);
         document.getElementById('nextButton').classList.toggle('disable-item', currentIndex === questionCount - 1);
@@ -617,31 +740,45 @@
 
         // Update progress bar
         document.getElementById('progressBar').style.width = `${((currentIndex + 1) / questionCount) * 100}%`;
+
+        // Wait for the animation to finish
+        setTimeout(() => {
+            prevQuestionElement.classList.remove('hide1');
+            nextQuestionElement.classList.remove('show1');
+
+            prevQuestionElement.classList.remove('hide2');
+            nextQuestionElement.classList.remove('show2');
+
+            document.getElementById(`A${prevIndex}`).classList.remove('fade-out')
+            document.getElementById(`A${currentIndex}`).classList.remove('fade-in')
+
+            document.getElementById(`A100`).classList.remove('fade-in')
+            document.getElementById(`A100`).classList.remove('fade-out')
+
+            // Hide all containers
+            document.querySelectorAll('.question-container, .input-container, .mc-container, .input-container-3').forEach(container => container.classList.add('disable-item'));
+
+            // Show appropriate container
+            document.getElementById(`Q${currentIndex}`).classList.remove('disable-item');
+            document.getElementById(`A${currentIndex}`).classList.remove('disable-item');
+            if (currentIndex === 0) {document.getElementById('A100').classList.remove('disable-item');}
+
+            document.getElementById('prevButton').disabled = false;
+            document.getElementById('nextButton').disabled = false;
+            document.getElementById('submitButton').disabled = false;
+
+            if (currentIndex > lastAnsweredIndex) {
+                lastAnsweredIndex = currentIndex - 1;
+                nextButton.disabled = true;
+                if ([8, 9, 13].includes(currentIndex)) {
+                    nextButton.disabled = false; // Disable the button if the input is empty
+                }
+            } else if (holes.includes(currentIndex)) {
+                nextButton.disabled = true;
+            }
+
+        }, 500); // Match the duration of the hide animation
     }
-
-    /*
-    // Function to check input fields and toggle buttons
-    function checkInputs() {
-        // Get all input fields
-        const inputs = document.querySelectorAll('.input-container input');
-    
-        // Check if any input field has a value
-        const hasInput = Array.from(inputs).some(input => input.value.trim() !== '');
-
-        // Get the buttons
-        const submitButton = document.getElementById('submitButton');
-        const nextButton = document.getElementById('nextButton');
-
-        // Enable or disable buttons based on input
-        if (hasInput) {
-            submitButton.disabled = false;
-            nextButton.disabled = false;
-        } else {
-            submitButton.disabled = true;
-            nextButton.disabled = true;
-        }
-    }
-    */
 
     // Add event listeners to input fields
     document.querySelectorAll('.input-control, .form-check-input, .input-control-long').forEach( input => {
