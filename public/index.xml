@@ -7,7 +7,7 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Toma Yuen</copyright>
-    <lastBuildDate>Tue, 20 Aug 2024 12:37:48 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Sep 2024 16:47:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
@@ -33,9 +33,9 @@
     <item>
       <title>De Hacks</title>
       <link>http://localhost:1313/dehacks/</link>
-      <pubDate>Tue, 20 Aug 2024 12:37:48 +0800</pubDate>
+      <pubDate>Mon, 02 Sep 2024 16:47:00 +0800</pubDate>
       <guid>http://localhost:1313/dehacks/</guid>
-      <description>&lt;!DOCTYPE html&gt;&#xD;What is your Full Name?&#xD;Full Name: Preferred Name: What is your email address?&#xD;Email: What is your FHDA CWID?&#xD;FHDA CWID: Are you current an FHDA student?&#xD;Yes, I study at De Anza College.&#xD;Yes, I study at Foothill College.&#xD;No, I am an FHDA Alumni.&#xD;No, I have never attended Foothill/De Anza College.&#xD;What year of study are you in?&#xD;First year.&#xD;Second year.&#xD;Third year.&#xD;Fourth year or higher.</description>
+      <description>&lt;!DOCTYPE html&gt;&#xD;What is your Full Name?&#xD;Full Name: Preferred Name: What is your email address?&#xD;Email: What is your FHDA CWID?&#xD;This is your FHDA MyPortal ID.&#xD;FHDA CWID: Are you current an FHDA student?&#xD;Yes, I study at De Anza College.&#xD;Yes, I study at Foothill College.&#xD;No, I am an FHDA Alumni.&#xD;No, I have never attended Foothill/De Anza College.&#xD;What year of study are you in?&#xD;Please select &#39;First Year&#39; if this does not apply to you.</description>
     </item>
     <item>
       <title>Activities</title>

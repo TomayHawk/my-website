@@ -1,6 +1,6 @@
 +++
 title = "De Hacks"
-date = 2024-08-20T12:37:48+08:00
+date = 2024-09-02T16:47:00+08:00
 draft = false
 menu = "main"
 weight = 60
@@ -31,6 +31,26 @@ weight = 60
         z-index: -1; /*  Send it behind other content */
     }
 
+    .secondary-background {
+        background-color: rgba(255, 105, 255, 0.1);
+        width: 80%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 10%;
+        z-index: -1; /*  Send it behind other content */
+    }
+
+    .center-background {
+        background-color: rgba(105, 105, 255, 0.35);
+        width: 64%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 18%;
+        z-index: -1; /*  Send it behind other content */
+    }
+
     .centralized {
         position: absolute;
         top: 50%;
@@ -57,6 +77,13 @@ weight = 60
         font-size: 32px;
         font-family: 'Press Start 2P', cursive;
         color: #d3d3d3;
+        flex-wrap: nowrap;
+    }
+
+    .subtitle-label {
+        font-size: 16px;
+        font-family: 'Press Start 2P', cursive;
+        color: #aa55bb;
         flex-wrap: nowrap;
     }
 
@@ -102,6 +129,17 @@ weight = 60
         width: auto;
     }
 
+    .confirmation-label {
+        font-size: 12px; /* Adjust to your desired size */
+        font-family: 'Press Start 2P', cursive; /* Pixelated font */
+        color: #000000;
+    }
+
+    .confirmation-label-2 {
+        text-align: right;
+        white-space: nowrap;
+    }
+
     .input-control {
         width: 200px; /* Set a specific width */
         flex: none; /* Prevent the input from expanding to fill the available space */
@@ -125,6 +163,18 @@ weight = 60
         box-sizing: border-box; /* Include padding and border in width/height calculation */
         white-space: pre-wrap; /* Preserve whitespace and wrap text */
         color: #a9a9a9;
+        margin: 0;
+    }
+
+    .confirmation-input-container {
+        position: absolute;
+        top: 15%;
+        left: 18%;
+        width: 64%;
+        display: grid;
+        align-items: center; /* Vertically center items */
+        grid-template-columns: 3fr 8fr; /* Creates 2 equal-width columns */
+        grid-gap: 20px; /* Adjust the spacing between items */
         margin: 0;
     }
 
@@ -192,7 +242,15 @@ weight = 60
         font-size: 18px; /* Adjust to your desired size */
         font-family: 'Nerko One', cursive; /* Pixelated font */
         border-radius: 30px; /* Adjust the value to get the desired roundness */
+        align-items: center; /* Vertically center items */
+        text-align: center; /* Center text horizontally */
+        justify-content: center; /* Center contents horizontally */
         white-space: pre;
+    }
+
+    .confirmation-button {
+        top: 85%;
+        width: 340px;
     }
 
     .custom-bar {
@@ -298,7 +356,7 @@ weight = 60
         opacity: 0;
     }
 
-    .input-container.fade-in, .mc-container.fade-in, .input-container-3.fade-in {
+    .input-container.fade-in, .mc-container.fade-in, .input-container-3.fade-in, .secondary-background.fade-in, .center-background.fade-in {
         opacity: 1;
         animation: fade-in 0.5s ease-out;
     }
@@ -312,8 +370,9 @@ weight = 60
 <!-- Background -->
 <div class="fullscreen-background"></div>
 
-<!-- Question -->
+<div class="secondary-background disable-item" id="secondary-background"></div>
 
+<div class="center-background disable-item" id="center-background"></div>
 
 <!-- Question 1 -->
 <div class="centralized question-container" id="Q0">
@@ -343,6 +402,7 @@ weight = 60
 <div class="centralized question-container disable-item" id="Q2">
     <div class="question-transition" id="T2">
         <label class="form-label question-label">What is your FHDA CWID?</label>
+        <label class="form-label subtitle-label">This is your FHDA MyPortal ID.</label>
     </div>
 </div>
 <div class="input-container disable-item" id="A2">
@@ -378,30 +438,32 @@ weight = 60
 <div class="centralized question-container disable-item" id="Q4">
     <div class="question-transition" id="T4">
         <label class="form-label question-label">What year of study are you in?</label>
+        <label class="form-label subtitle-label">Please select 'First Year' if this does not apply to you.</label>
     </div>
 </div>
 <div class="mc-container mc-container-3 disable-item" id="A4">
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA4" id="radioFirstYear">
-        <label class="form-check-label input-label input-label-2" for="radioFirstYear">First year.</label>
+        <label class="form-check-label input-label input-label-2" for="radioFirstYear">First Year</label>
     </div>
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA4" id="radioSecondYear">
-        <label class="form-check-label input-label input-label-2" for="radioSecondYear">Second year.</label>
+        <label class="form-check-label input-label input-label-2" for="radioSecondYear">Second Year</label>
     </div>
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA4" id="radioThirdYear">
-        <label class="form-check-label input-label input-label-2" for="radioThirdYear">Third year.</label>
+        <label class="form-check-label input-label input-label-2" for="radioThirdYear">Third Year</label>
     </div>
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA4" id="radioFourthYear">
-        <label class="form-check-label input-label input-label-2" for="radioFourthYear">Fourth year or higher.</label>
+        <label class="form-check-label input-label input-label-2" for="radioFourthYear">Fourth Year or Higher</label>
     </div>
 </div>
 <!-- Question 6 -->
 <div class="centralized question-container disable-item" id="Q5">
     <div class="question-transition" id="T5">
         <label class="form-label question-label">What is your major?</label>
+        <label class="form-label subtitle-label">Please enter '-' if this does not apply to you.</label>
     </div>
 </div>
 <div class="input-container disable-item" id="A5">
@@ -417,15 +479,15 @@ weight = 60
 <div class="mc-container mc-container-4 disable-item" id="A6">
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA6" id="radioBeginner">
-        <label class="form-check-label input-label input-label-2" for="radioBeginner">Beginner.</label>
+        <label class="form-check-label input-label input-label-2" for="radioBeginner">Beginner</label>
     </div>
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA6" id="radioIntermediate">
-        <label class="form-check-label input-label input-label-2" for="radioIntermediate">Intermediate.</label>
+        <label class="form-check-label input-label input-label-2" for="radioIntermediate">Intermediate</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input bg-secondary" type="radio" name="flexRadioflexRadioA6Default" id="radioAdvanced">
-        <label class="form-check-label input-label input-label-2" for="radioAdvanced">Advanced.</label>
+        <input class="form-check-input bg-secondary" type="radio" name="flexRadioA6" id="radioAdvanced">
+        <label class="form-check-label input-label input-label-2" for="radioAdvanced">Advanced</label>
     </div>
 </div>
 <!-- Question 8 -->
@@ -437,15 +499,15 @@ weight = 60
 <div class="mc-container disable-item" id="A7">
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA7" id="radioZeroHackathons">
-        <label class="form-check-label input-label input-label-2" for="radioZeroHackathons">0.</label>
+        <label class="form-check-label input-label input-label-2" for="radioZeroHackathons">0</label>
     </div>
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA7" id="radioOneHackathon">
-        <label class="form-check-label input-label input-label-2" for="radioOneHackathon">1-2.</label>
+        <label class="form-check-label input-label input-label-2" for="radioOneHackathon">1-2</label>
     </div>
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA7" id="radioThreeHackathons">
-        <label class="form-check-label input-label input-label-2" for="radioThreeHackathons">3+.</label>
+        <label class="form-check-label input-label input-label-2" for="radioThreeHackathons">3+</label>
     </div>
 </div>
 <!-- Question 9 -->
@@ -492,19 +554,19 @@ weight = 60
 <div class="mc-container mc-container-5 disable-item" id="A10">
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA10" id="radioSmall">
-        <label class="form-check-label input-label input-label-2" for="radioSmall">Small. (S)</label>
+        <label class="form-check-label input-label input-label-2" for="radioSmall">Small (S)</label>
     </div>
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA10" id="radioMedium">
-        <label class="form-check-label input-label input-label-2" for="radioMedium">Medium. (M)</label>
+        <label class="form-check-label input-label input-label-2" for="radioMedium">Medium (M)</label>
     </div>
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA10" id="radioLarge">
-        <label class="form-check-label input-label input-label-2" for="radioLarge">Large. (L)</label>
+        <label class="form-check-label input-label input-label-2" for="radioLarge">Large (L)</label>
     </div>
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA10" id="radioExtraLarge">
-        <label class="form-check-label input-label input-label-2" for="radioExtraLarge">Extra Large. (XL)</label>
+        <label class="form-check-label input-label input-label-2" for="radioExtraLarge">Extra Large (XL)</label>
     </div>
 </div>
 <!-- Question 12 -->
@@ -516,7 +578,7 @@ weight = 60
 <div class="mc-container mc-container-2 disable-item" id="A11">
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA11" id="radioHaveLaptop">
-        <label class="form-check-label input-label input-label-2" for="radioHaveComputer">I have a laptop that I can code/work on.</label>
+        <label class="form-check-label input-label input-label-2" for="radioHaveLaptop">I have a laptop that I can code/work on.</label>
     </div>
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA11" id="radioHaveDesktop">
@@ -543,11 +605,45 @@ weight = 60
 <!-- Question 14 -->
 <div class="centralized question-container disable-item" id="Q13">
     <div class="question-transition" id="T13">
-    <label class="form-label question-label">What additional information would you like us to know? Feel free to include any significant coding or hackathon experiences below!</label>
+    <label class="form-label question-label">What additional information would you like us to know?</label>
+    <label class="form-label subtitle-label">Feel free to include any significant coding or hackathon experiences below!</label>
     </div>
 </div>
 <div class="input-container-3 disable-item" id="A13">
     <textarea class="input-control-long bg-dark" id="additionalInformation"></textarea>
+</div>
+
+<div class="confirmation-input-container disable-item" id="confirmationContainer">
+    <label class="form-label input-label confirmation-label confirmation-label-2">Full Name: </label>
+    <label class="form-label input-label confirmation-label" id="fullNameConfirmation"></label>
+    <label class="form-label input-label confirmation-label confirmation-label-2">Preferred Name: </label>
+    <label class="form-label input-label confirmation-label" id="preferredNameConfirmation"></label>
+    <label class="form-label input-label confirmation-label confirmation-label-2">Email Address: </label>
+    <label class="form-label input-label confirmation-label" id="emailConfirmation"></label>
+    <label class="form-label input-label confirmation-label confirmation-label-2">FHDA CWID: </label>
+    <label class="form-label input-label confirmation-label" id="idConfirmation"></label>
+    <label class="form-label input-label confirmation-label confirmation-label-2">Current Status: </label>
+    <label class="form-label input-label confirmation-label" id="statusConfirmation"></label>
+    <label class="form-label input-label confirmation-label confirmation-label-2">Year: </label>
+    <label class="form-label input-label confirmation-label" id="yearConfirmation"></label>
+    <label class="form-label input-label confirmation-label confirmation-label-2">Major: </label>
+    <label class="form-label input-label confirmation-label" id="majorConfirmation"></label>
+    <label class="form-label input-label confirmation-label confirmation-label-2">Experience: </label>
+    <label class="form-label input-label confirmation-label" id="experienceConfirmation"></label>
+    <label class="form-label input-label confirmation-label confirmation-label-2">Hackathon Experience: </label>
+    <label class="form-label input-label confirmation-label" id="hackathonExperienceConfirmation"></label>
+    <label class="form-label input-label confirmation-label confirmation-label-2">Dietary Preferences: </label>
+    <label class="form-label input-label confirmation-label" id="dietaryPreferencesConfirmation"></label>
+    <label class="form-label input-label confirmation-label confirmation-label-2">Accommodation Needs: </label>
+    <label class="form-label input-label confirmation-label" id="accommodationNeedsConfirmation"></label>
+    <label class="form-label input-label confirmation-label confirmation-label-2">Shirt Size: </label>
+    <label class="form-label input-label confirmation-label" id="shirtSizeConfirmation"></label>
+    <label class="form-label input-label confirmation-label confirmation-label-2">Computer Availability: </label>
+    <label class="form-label input-label confirmation-label" id="computerConfirmation"></label>
+    <label class="form-label input-label confirmation-label confirmation-label-2">Reason for Attending: </label>
+    <label class="form-label input-label confirmation-label" id="attendReasonConfirmation"></label>
+    <label class="form-label input-label confirmation-label confirmation-label-2">Additional Information: </label>
+    <label class="form-label input-label confirmation-label" id="additionalInformationConfirmation"></label>
 </div>
 
 <!-- Buttons -->
@@ -556,6 +652,8 @@ weight = 60
     <button type="button" class="btn btn-info rounded-button" disabled id="nextButton" onclick="nextQuestion()">  Next ></button>
     <button type="button" class="btn btn-success rounded-button disable-item" id="submitButton" onclick="submitPressed()">Submit</button>
 </div>
+
+<button type="button" class="btn btn-warning centralized rounded-button confirmation-button disable-item" id="confirmButton" onclick="confirmPressed()">Confirm Submission</button>
 
 <!-- Progress Bar -->
 <div class="progress centralized custom-bar" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
@@ -589,11 +687,11 @@ weight = 60
             prevQuestionElement.classList.add('hide1');
             nextQuestionElement.classList.add('show1');
         } else {
-            prevQuestionElement.classList.add('hide2');
+            if ((prevIndex !== (questionCount - 1)) || (currentIndex !== (questionCount - 1))) { prevQuestionElement.classList.add('hide2'); }
             nextQuestionElement.classList.add('show2');
         }
 
-        document.getElementById(`A${prevIndex}`).classList.add('fade-out')
+        if ((prevIndex !== (questionCount - 1)) || (currentIndex !== (questionCount - 1))) { document.getElementById(`A${prevIndex}`).classList.add('fade-out'); }
         document.getElementById(`A${currentIndex}`).classList.add('fade-in')
 
         if (currentIndex === 0) {
@@ -668,6 +766,14 @@ weight = 60
             }
     })});
 
+    document.getElementById('checkOthersText').addEventListener('input', function() {
+         if (this.value.trim().length > 0) {
+            checkOthers.checked = true;
+         } else {
+            checkOthers.checked = false;
+         }
+    })
+
     function nextQuestion() {
         if (currentIndex < questionCount - 1) {
             prevIndex = currentIndex;
@@ -689,12 +795,93 @@ weight = 60
         if (currentIndex > 0) {
             prevIndex = currentIndex;
             currentIndex--;
+            if (!document.getElementById(`confirmationContainer`).classList.contains('disable-item')) {
+                document.getElementById(`confirmationContainer`).classList.add('disable-item');
+                document.getElementById('confirmButton').classList.add('disable-item');
+                document.getElementById('secondary-background').classList.add('disable-item');
+                document.getElementById('center-background').classList.add('disable-item');
+                currentIndex++;
+            }
             displayQuestion();
             nextButton.disabled = false;
         }
     }
 
     function submitPressed() {
-        alert('Form submitted!');
+        // Hide all containers
+        document.querySelectorAll('.question-container, .input-container, .mc-container, .input-container-3').forEach(container => container.classList.add('disable-item'));
+        document.getElementById('nextButton').classList.add('disable-item');
+        document.getElementById('submitButton').classList.add('disable-item');
+        document.getElementById('confirmButton').classList.remove('disable-item');
+        document.getElementById('secondary-background').classList.remove('disable-item');
+        document.getElementById('center-background').classList.remove('disable-item');
+        
+        document.getElementById('secondary-background').classList.add('fade-in');
+        document.getElementById('center-background').classList.add('fade-in');
+
+        setTimeout(() => {
+            document.getElementById('secondary-background').classList.remove('fade-in');
+            document.getElementById('center-background').classList.remove('fade-in');
+        }, 500);
+
+        document.getElementById(`confirmationContainer`).classList.remove('disable-item');
+
+        document.getElementById('fullNameConfirmation').textContent = document.getElementById('fullName').value;
+        document.getElementById('preferredNameConfirmation').textContent = document.getElementById('preferredName').value;
+        document.getElementById('emailConfirmation').textContent = document.getElementById('emailAddress').value;
+        document.getElementById('idConfirmation').textContent = document.getElementById('idNumber').value;
+
+        // Update status based on radio buttons
+        if (radioDeAnza.checked) { document.getElementById('statusConfirmation').textContent = "Yes, I study at De Anza College."; }
+        else if (radioFoothill.checked) { document.getElementById('statusConfirmation').textContent = "Yes, I study at Foothill College."; }
+        else if (radioAlumni.checked) { document.getElementById('statusConfirmation').textContent = "No, I am an FHDA Alumni."; }
+        else if (radioNeverAttended.checked) { document.getElementById('statusConfirmation').textContent = "No, I have never attended Foothill/De Anza College."; }
+
+        // Update year based on radio buttons
+        if (radioFirstYear.checked) { document.getElementById('yearConfirmation').textContent = "First Year"; }
+        else if (radioSecondYear.checked) { document.getElementById('yearConfirmation').textContent = "Second Year"; }
+        else if (radioThirdYear.checked) { document.getElementById('yearConfirmation').textContent = "Third Year"; }
+        else if (radioFourthYear.checked) { document.getElementById('yearConfirmation').textContent = "Fourth Year or Higher"; }
+
+        document.getElementById('majorConfirmation').textContent = document.getElementById('major').value;
+
+        // Update experience based on radio buttons
+        if (radioBeginner.checked) { document.getElementById('experienceConfirmation').textContent = "Beginner"; }
+        else if (radioIntermediate.checked) { document.getElementById('experienceConfirmation').textContent = "Intermediate"; }
+        else if (radioAdvanced.checked) { document.getElementById('experienceConfirmation').textContent = "Advanced"; }
+
+        // Update hackathon experience based on radio buttons
+        if (radioZeroHackathons.checked) { document.getElementById('hackathonExperienceConfirmation').textContent = "None"; }
+        else if (radioOneHackathon.checked) { document.getElementById('hackathonExperienceConfirmation').textContent = "1-2"; }
+        else if (radioThreeHackathons.checked) { document.getElementById('hackathonExperienceConfirmation').textContent = "3+"; }
+
+        // Update dietary preferences based on checkboxes
+        let dietaryPreferences = [];
+        if (checkVegetarian.checked) { dietaryPreferences.push("Vegetarian"); }
+        if (checkHalal.checked) { dietaryPreferences.push("Halal"); }
+        if (checkGlutenFree.checked) { dietaryPreferences.push("Gluten-Free"); }
+        if (checkOthers.checked) { dietaryPreferences.push(checkOthersText.value); }
+        document.getElementById('dietaryPreferencesConfirmation').textContent = dietaryPreferences.join(", ");
+
+        document.getElementById('accommodationNeedsConfirmation').textContent = document.getElementById('accommodationNeeds').value;
+
+        // Update shirt size based on radio buttons
+        if (radioSmall.checked) { document.getElementById('shirtSizeConfirmation').textContent = "Small (S)"; }
+        else if (radioMedium.checked) { document.getElementById('shirtSizeConfirmation').textContent = "Medium (M)"; }
+        else if (radioLarge.checked) { document.getElementById('shirtSizeConfirmation').textContent = "Large (L)"; }
+        else if (radioExtraLarge.checked) { document.getElementById('shirtSizeConfirmation').textContent = "Extra Large (XL)"; }
+
+        // Update computer availability based on radio buttons
+        if (radioHaveLaptop.checked) { document.getElementById('computerConfirmation').textContent = "I have a laptop that I can code/work on."; }
+        else if (radioHaveDesktop.checked) { document.getElementById('computerConfirmation').textContent = "I will bring a desktop computer to the event. (Why???)"; }
+        else if (radioBadComputer.checked) { document.getElementById('computerConfirmation').textContent = "I will not have access to a 'good' computer."; }
+        else if (radioNoComputer.checked) { document.getElementById('computerConfirmation').textContent = "I will not have access to a computer."; }
+
+        document.getElementById('attendReasonConfirmation').textContent = document.getElementById('attendReason').value;
+        document.getElementById('additionalInformationConfirmation').textContent = document.getElementById('additionalInformation').value;
+    }
+
+    function confirmPressed() {
+        alert("Submission Confirmed");
     }
 </script>
