@@ -374,6 +374,23 @@ weight = 60
 
 <div class="center-background disable-item" id="center-background"></div>
 
+<head>
+    <style>
+        body{
+            margin: 0;
+            overflow: hidden;
+        }
+        html,body{
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <script src="particles.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
 <!-- Question 1 -->
 <div class="centralized question-container" id="Q0">
     <div class="question-transition" id="T0">
@@ -582,7 +599,7 @@ weight = 60
     </div>
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA11" id="radioHaveDesktop">
-        <label class="form-check-label input-label input-label-2" for="radioHaveDesktop">I will bring a desktop computer to the event. (Why???)</label>
+        <label class="form-check-label input-label input-label-2" for="radioHaveDesktop">I will bring a desktop computer to the event.</label>
     </div>
     <div class="form-check">
         <input class="form-check-input bg-secondary" type="radio" name="flexRadioA11" id="radioBadComputer">
