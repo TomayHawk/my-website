@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on Toma</title>
-    <link>http://localhost:1313/</link>
+    <link>http://localhost:55736/</link>
     <description>Recent content in Home on Toma</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Toma Yuen</copyright>
     <lastBuildDate>Mon, 02 Sep 2024 16:47:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:55736/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>http://localhost:55736/about/</link>
       <pubDate>Tue, 20 Aug 2024 12:37:48 +0800</pubDate>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>http://localhost:55736/about/</guid>
       <description>This page is where you can list contact information for the business.</description>
     </item>
     <item>
       <title>Blog</title>
-      <link>http://localhost:1313/blog/</link>
+      <link>http://localhost:55736/blog/</link>
       <pubDate>Tue, 20 Aug 2024 12:37:48 +0800</pubDate>
-      <guid>http://localhost:1313/blog/</guid>
+      <guid>http://localhost:55736/blog/</guid>
       <description>This page is where you can list contact information for the business.</description>
     </item>
     <item>
       <title>Contacts</title>
-      <link>http://localhost:1313/contacts/</link>
+      <link>http://localhost:55736/contacts/</link>
       <pubDate>Tue, 20 Aug 2024 12:37:48 +0800</pubDate>
-      <guid>http://localhost:1313/contacts/</guid>
+      <guid>http://localhost:55736/contacts/</guid>
       <description>This page is where you can list contact information for the business.</description>
     </item>
     <item>
       <title>De Hacks</title>
-      <link>http://localhost:1313/dehacks/</link>
+      <link>http://localhost:55736/dehacks/</link>
       <pubDate>Mon, 02 Sep 2024 16:47:00 +0800</pubDate>
-      <guid>http://localhost:1313/dehacks/</guid>
+      <guid>http://localhost:55736/dehacks/</guid>
       <description>&lt;!DOCTYPE html&gt;&#xD;What is your Full Name?&#xD;Full Name: Preferred Name: What is your email address?&#xD;Email: What is your FHDA CWID?&#xD;This is your FHDA MyPortal ID.&#xD;FHDA CWID: Are you current an FHDA student?&#xD;Yes, I study at De Anza College.&#xD;Yes, I study at Foothill College.&#xD;No, I am an FHDA Alumni.&#xD;No, I have never attended Foothill/De Anza College.&#xD;What year of study are you in?&#xD;Please select &#39;First Year&#39; if this does not apply to you.</description>
     </item>
     <item>
       <title>Activities</title>
-      <link>http://localhost:1313/activities/</link>
+      <link>http://localhost:55736/activities/</link>
       <pubDate>Tue, 20 Aug 2024 12:37:48 +0800</pubDate>
-      <guid>http://localhost:1313/activities/</guid>
+      <guid>http://localhost:55736/activities/</guid>
       <description></description>
     </item>
   </channel>
